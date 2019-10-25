@@ -15,12 +15,17 @@
     "webpack boilerplate",
     "webpack starter kit",
     "frontend starter kit",
-    "frontend boilerplate",
+    "frontend boilerplate"
   ],
   "author": "Alexander Timofeev aka encrypticus",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/encrypticus/webpack-starter-kit/issues"
   },
-  "homepage": "https://github.com/encrypticus/webpack-starter-kit#readme"
+  "homepage": "https://github.com/encrypticus/webpack-starter-kit#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
 }
