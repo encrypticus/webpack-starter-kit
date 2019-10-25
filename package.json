@@ -1,0 +1,32 @@
+{
+  "name": "webpack-starter-kit",
+  "version": "1.0.0",
+  "description": "Стартовый репозиторий для frontend-разработки c webpack на борту",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/encrypticus/webpack-starter-kit.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack",
+    "boilerplate",
+    "webpack",
+    "starter",
+    "kit",
+    "frontend",
+    "starter",
+    "kit",
+    "frontend",
+    "boilerplate"
+  ],
+  "author": "Alexander Timofeev aka encrypticus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/encrypticus/webpack-starter-kit/issues"
+  },
+  "homepage": "https://github.com/encrypticus/webpack-starter-kit#readme"
+}
