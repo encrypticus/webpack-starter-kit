@@ -4,7 +4,8 @@
   "description": "Стартовый репозиторий для frontend-разработки c webpack на борту",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "browser-sync": "webpack --mode development",
+    "dev-server": "webpack-dev-server --mode development --open",
     "prod": "webpack --mode production"
   },
   "repository": {
