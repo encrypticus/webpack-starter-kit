@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "browser-sync": "webpack --mode development",
-    "dev-server": "webpack-dev-server --mode development --open --watch",
-    "prod": "webpack --mode production --watch"
+    "dev-server": "cross-env mode=development webpack-dev-server --mode development --open --watch",
+    "prod": "cross-env mode=production webpack --mode production --watch"
   },
   "repository": {
     "type": "git",
@@ -25,11 +25,28 @@
     "url": "https://github.com/encrypticus/webpack-starter-kit/issues"
   },
   "homepage": "https://github.com/encrypticus/webpack-starter-kit#readme",
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
+    "autoprefixer": "^9.7.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "extract-css-chunks-webpack-plugin": "^4.6.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.4.1"
   }
 }
