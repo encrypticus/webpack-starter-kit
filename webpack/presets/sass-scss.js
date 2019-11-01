@@ -1,4 +1,5 @@
 const cssLoader = require('../loaders/css-loader');
+const sassScssLoader = require('../loaders/sass-scss-loader');
 const styleLoader = require('../loaders/style-loader');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssLoader = require('../loaders/postcss-loader');
@@ -23,6 +24,9 @@ const defaultOptions = {
   cssLoader: {
     sourceMap: true
   },
+  sassScssLoader: {
+    sourceMap: true
+  },
   postcssLoader: {
     plugins: [
       autoprefixer(),
@@ -38,47 +42,19 @@ const defaultOptions = {
  * сборщик будет обрабатывать файлы с тем или иным расширением (модули), а также указываются лоадеры,
  * которые будут обрабатывать эти файлы.
  * @param {Object} options настройки для пресета
- * @returns {Object} свойство объекта конфига сборщика, пресет для css-файлов
- * @example
- * const processCss = require('./webpack/presets/css');
- * // вызов с настройками по умолчанию
- * processCss()
- * // вызов со своими настройками
- * processCss({
- *  styleLoader: {
- *    injectType: 'singletonStyleTag'
- *  }
- * })
- *
- * processCss({
- *  cssLoader: {
- *    sourceMap: false
- *  }
- * })
- *
- * processCss({
- *  postscssLoader: {
- *    plugins: [
- *      autoprefixer(),
- *      cssnano({
- *        preset: 'default'
- *      }),
- *      require('mqpacker')()
- *    ],
- *    sourceMap: false
- *  }
- * })
+ * @returns {Object} свойство объекта конфига сборщика, пресет для scss/sass-файлов
  */
 module.exports = (options = defaultOptions) => {
   return {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.s[ac]ss$/,
           use: [
             process.env.mode === 'development' ? styleLoader(options.styleLoader) : miniCssExtractPlugin.loader,
             cssLoader(options.cssLoader),
-            postcssLoader(options.postcssLoader)
+            postcssLoader(options.postcssLoader),
+            sassScssLoader(options.sassScssLoader)
           ]
         }
       ]
