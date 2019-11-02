@@ -3,20 +3,6 @@ const styleLoader = require('../loaders/style-loader');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssLoader = require('../loaders/postcss-loader');
 
-/**
- * PostCss плагин, добавляющий вендорные префиксы к css-свойствам.
- * Плагин использует свойство 'browserslist' из package.json.
- * Подробнее о browserlist - https://github.com/browserslist/browserslist.
- * @see https://github.com/postcss/autoprefixer#readme
- */
-const autoprefixer = require('autoprefixer');
-
-/**
- * PostCss плагин, оптимизирующий css
- * @see https://cssnano.co/
- */
-const cssnano = require('cssnano');
-
 // Объект настроек по умолчанию
 const defaultOptions = {
   styleLoader: {},
@@ -24,13 +10,9 @@ const defaultOptions = {
     sourceMap: true
   },
   postcssLoader: {
-    plugins: [
-      autoprefixer(),
-      cssnano({
-        preset: 'default'
-      })
-    ],
-    sourceMap: true
+    config: {
+      path: require('path').resolve('./webpack/configs/')
+    }
   }
 };
 
@@ -59,8 +41,8 @@ const defaultOptions = {
  * processCss({
  *  postscssLoader: {
  *    plugins: [
- *      autoprefixer(),
- *      cssnano({
+ *      require('autoprefixer')(),
+ *      require('cssnano')({
  *        preset: 'default'
  *      }),
  *      require('mqpacker')()
