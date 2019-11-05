@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "browser-sync": "webpack --mode development",
-    "dev-server": "cross-env mode=development webpack-dev-server --mode development --open --watch",
+    "dev-server": "cross-env mode=development webpack-dev-server --mode development --watch",
     "prod": "cross-env mode=production webpack --mode production --watch"
   },
   "repository": {
@@ -33,13 +33,16 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
-    "extract-css-chunks-webpack-plugin": "^4.6.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.12.1",
+    "stylelint-webpack-plugin": "^1.0.3",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",

@@ -9,6 +9,7 @@ const processSassScss = require('./webpack/presets/sass-scss'); // пресет 
 const miniCssExtractPlugin = require('./webpack/plugins/mini-css-extract-plugin'); // модуль обрабатывает css-файлы
 const addOptimization = require('./webpack/options/optimization'); // опция добавляет оптимизацию для конечного кода
 const generateMap = require('./webpack/options/source-map'); // опция включает генерацию карты js/css-кода (sourcemap)
+const enableStylelint = require('./webpack/plugins/stylelint-webpack-plugin'); // плагин включает линтинг css/sass/scss
 module.exports = (env, args) => {
   if (args.mode !== 'development' && args.mode !== 'production') {
     args.mode = 'development';
@@ -35,7 +36,8 @@ module.exports = (env, args) => {
     setOutput(),
     miniCssExtractPlugin(),
     processCss(),
-    processSassScss()
+    processSassScss(),
+    enableStylelint()
   );
 
   if (process.env.mode === 'development') {
