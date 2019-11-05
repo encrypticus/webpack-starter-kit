@@ -1,9 +1,30 @@
 const imageLoader = require('../loaders/image-loader');
+const imageWebpackLoader = require('../loaders/image-webpack-loader');
 
 // Объект настроек по умолчанию
 const defaultOptions = {
   imageLoader: {
     name: process.env.mode === 'development' ? './img/[name].[ext]' : './img/[name].[contenthash:8].[ext]',
+  },
+  imageWebpackLoader: {
+    mozjpeg: {
+      progressive: true,
+      quality: 65
+    },
+    optipng: {
+      enabled: false,
+    },
+    pngquant: {
+      quality: [0.65, 0.90],
+      speed: 4
+    },
+    gifsicle: {
+      interlaced: false,
+    },
+    webp: {
+      quality: 75
+    },
+    svgo: {}
   },
   exclude: [/fonts/],
   regexp: /\.(png|gif|jpg|jpeg|svg)$/
@@ -40,9 +61,14 @@ module.exports = (options = defaultOptions) => {
         {
           test: options.regexp,
           exclude: options.exclude,
-          use: [
-            imageLoader(options.imageLoader)
-          ]
+          use: process.env.mode === 'production' ?
+            [
+              imageLoader(options.imageLoader),
+              imageWebpackLoader(options.imageWebpackLoader)
+            ] :
+            [
+              imageLoader(options.imageLoader)
+            ]
         }
       ]
     }
