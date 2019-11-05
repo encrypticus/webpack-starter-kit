@@ -6,10 +6,12 @@ const setOutput = require('./webpack/options/output'); // опция устан�
 const htmlWebpackPlugin = require('./webpack/plugins/html-webpack-plugin'); // плагин генерирует html-файл в папке сборки
 const processCss = require('./webpack/presets/css'); // пресет обрабатывает css-файлы
 const processSassScss = require('./webpack/presets/sass-scss'); // пресет обрабатывает sass/scss-файлы
+const processImages = require('./webpack/presets/img'); // пресет обрабатывет изображения
 const miniCssExtractPlugin = require('./webpack/plugins/mini-css-extract-plugin'); // модуль обрабатывает css-файлы
 const addOptimization = require('./webpack/options/optimization'); // опция добавляет оптимизацию для конечного кода
 const generateMap = require('./webpack/options/source-map'); // опция включает генерацию карты js/css-кода (sourcemap)
 const enableStylelint = require('./webpack/plugins/stylelint-webpack-plugin'); // плагин включает линтинг css/sass/scss
+
 module.exports = (env, args) => {
   if (args.mode !== 'development' && args.mode !== 'production') {
     args.mode = 'development';
@@ -37,7 +39,8 @@ module.exports = (env, args) => {
     miniCssExtractPlugin(),
     processCss(),
     processSassScss(),
-    enableStylelint()
+    processImages(),
+    enableStylelint(),
   );
 
   if (process.env.mode === 'development') {
