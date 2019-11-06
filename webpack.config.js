@@ -8,6 +8,7 @@ const processCss = require('./webpack/presets/css'); // пресет обраб�
 const processSassScss = require('./webpack/presets/sass-scss'); // пресет обрабатывает sass/scss-файлы
 const processImages = require('./webpack/presets/img'); // пресет обрабатывет изображения
 const processFonts = require('./webpack/presets/font'); // пресет обрабатывает шрифты
+const processPug = require('./webpack/presets/pug'); // пресет обрабатывает pug-файлы
 const miniCssExtractPlugin = require('./webpack/plugins/mini-css-extract-plugin'); // модуль обрабатывает css-файлы
 const addOptimization = require('./webpack/options/optimization'); // опция добавляет оптимизацию для конечного кода
 const generateMap = require('./webpack/options/source-map'); // опция включает генерацию карты js/css-кода (sourcemap)
@@ -43,6 +44,7 @@ module.exports = (env, args) => {
     processImages(),
     processFonts(),
     enableStylelint(),
+    processPug()
   );
 
   if (process.env.mode === 'development') {
