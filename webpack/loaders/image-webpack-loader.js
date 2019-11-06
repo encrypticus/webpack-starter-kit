@@ -21,9 +21,21 @@ const defaultOptions = {
 };
 
 /**
- * @description
- * @param options
- * @returns {{loader: string, options: {mozjpeg: {progressive: boolean, quality: number}, optipng: {enabled: boolean}, pngquant: {quality: number[], speed: number}, gifsicle: {interlaced: boolean}, webp: {quality: number}}}}
+ * @description этот лоадер производит оптимизацию изображений
+ * @param {Object} options объект настроек лоадера
+ * @returns {Object} loader конфиг лоадера
+ * @see https://github.com/tcoopman/image-webpack-loader#readme
+ * @example
+ * const imageWebpackLoader = require('./webpack/loaders/image-webpack-loader');
+ * // вызов с настройками по умолчанию
+ * imageWebpackLoader();
+ * // вызов со совоими настройками
+ * imageWebpackLoader({
+ *  mozjpeg: {
+ *   progressive: false;
+ *   quality: 80
+ *  }
+ * });
  */
 module.exports = (options = defaultOptions) => {
   return {
