@@ -14,6 +14,7 @@ const addOptimization = require('./webpack/options/optimization'); // опция
 const generateMap = require('./webpack/options/source-map'); // опция включает генерацию карты js/css-кода (sourcemap)
 const enableStylelint = require('./webpack/plugins/stylelint-webpack-plugin'); // плагин включает линтинг css/sass/scss
 const processJs = require('./webpack/presets/js'); // пресет обрабатывает js-файлы
+const browserSync = require('./webpack/plugins/browser-sync-webpack-plugin'); // плагин browser sync
 
 module.exports = (env, args) => {
   if (args.mode !== 'development' && args.mode !== 'production') {
@@ -52,7 +53,8 @@ module.exports = (env, args) => {
   if (process.env.mode === 'development') {
     return webpackMerge(
       commonConfig,
-      generateMap()
+      generateMap(),
+      browserSync()
     );
   }
 

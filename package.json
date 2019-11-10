@@ -4,7 +4,7 @@
   "description": "Стартовый репозиторий для frontend-разработки c webpack на борту",
   "main": "index.js",
   "scripts": {
-    "browser-sync": "webpack --mode development",
+    "browser-sync": "cross-env mode=development webpack --mode development --watch",
     "dev-server": "cross-env mode=development webpack-dev-server --mode development --watch",
     "prod": "cross-env mode=production webpack --mode production --watch"
   },
@@ -33,6 +33,8 @@
     "@babel/preset-env": "^7.7.1",
     "autoprefixer": "^9.7.0",
     "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
