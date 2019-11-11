@@ -15,6 +15,7 @@ const generateMap = require('./webpack/options/source-map'); // опция вк�
 const enableStylelint = require('./webpack/plugins/stylelint-webpack-plugin'); // плагин включает линтинг css/sass/scss
 const processJs = require('./webpack/presets/js'); // пресет обрабатывает js-файлы
 const browserSync = require('./webpack/plugins/browser-sync-webpack-plugin'); // плагин browser sync
+const cleanWebpackPlugin = require('./webpack/plugins/clean-webpack-plugin'); // плагин очищает папку сборки перед каждой пересборкой
 
 module.exports = (env, args) => {
   if (args.mode !== 'development' && args.mode !== 'production') {
@@ -61,7 +62,8 @@ module.exports = (env, args) => {
   if (process.env.mode === 'production') {
     return webpackMerge(
       commonConfig,
-      addOptimization()
+      addOptimization(),
+      cleanWebpackPlugin()
     );
   }
 };
