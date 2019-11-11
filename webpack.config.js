@@ -17,14 +17,7 @@ const processJs = require('./webpack/presets/js'); // пресет обраба�
 const browserSync = require('./webpack/plugins/browser-sync-webpack-plugin'); // плагин browser sync
 const cleanWebpackPlugin = require('./webpack/plugins/clean-webpack-plugin'); // плагин очищает папку сборки перед каждой пересборкой
 
-module.exports = (env, args) => {
-  if (args.mode !== 'development' && args.mode !== 'production') {
-    args.mode = 'development';
-  }
-
-  let mode = 'development';
-  let isDevMode = mode === args.mode; // флаг, указывающий режим сборки
-
+module.exports = () => {
   const commonConfig = webpackMerge(
     setEntry({
       index: './src/pages/index/index.js',
@@ -46,7 +39,6 @@ module.exports = (env, args) => {
     processSassScss(),
     processImages(),
     processFonts(),
-    enableStylelint(),
     processPug(),
     processJs()
   );
