@@ -20,18 +20,11 @@ const cleanWebpackPlugin = require('./webpack/plugins/clean-webpack-plugin'); //
 module.exports = () => {
   const commonConfig = webpackMerge(
     setEntry({
-      index: './src/pages/index/index.js',
-      blog: './src/pages/blog/index.js'
+      index: './src/pages/index/index.js'
     }),
     htmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/pages/index/index.html',
-      excludeChunks: ['blog']
-    }),
-    htmlWebpackPlugin({
-      filename: 'blog.html',
-      template: 'src/pages/blog/index.html',
-      excludeChunks: ['index']
+      template: 'src/pages/index/index.pug'
     }),
     setOutput(),
     miniCssExtractPlugin(),
@@ -41,6 +34,7 @@ module.exports = () => {
     processFonts(),
     processPug(),
     processJs(),
+    cleanWebpackPlugin(),
     // enableStylelint()
   );
 
@@ -55,8 +49,7 @@ module.exports = () => {
   if (process.env.mode === 'production') {
     return webpackMerge(
       commonConfig,
-      addOptimization(),
-      cleanWebpackPlugin()
+      addOptimization()
     );
   }
 };
