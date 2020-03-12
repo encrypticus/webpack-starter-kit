@@ -6,7 +6,13 @@ const defaultOptions = {
     // Параметр optimization.minimizer переопределяет значения по умолчанию, предоставляемые сборщиком,
     // поэтому нужно обязательно указать также JS minimizer:
     terserWebpackPlugin({
-      sourceMap: true
+      sourceMap: true,
+      extractComments: false,
+      terserOptions: {
+        output: {
+          comments: false
+        }
+      }
     }),
   ],
   splitChunks: {
