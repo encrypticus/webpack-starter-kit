@@ -31,7 +31,9 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.7.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
@@ -75,6 +77,13 @@
     "material-icons": "^0.3.1",
     "mmenu-js": "^8.4.3",
     "popper": "^1.0.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.2.2",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "reset-css": "^5.0.1"
   }
 }
