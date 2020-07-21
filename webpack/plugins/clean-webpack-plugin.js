@@ -3,7 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // Объект настроек по умолчанию
 const defaultOptions = {
-  verbose: true
+  verbose: true,
+  cleanStaleWebpackAssets: false // установка этой опции в false позволяет не удалять файлы, созданные другими сторонними плагинами - например clean webpack plugin
 };
 
 /**
@@ -22,7 +23,7 @@ const defaultOptions = {
  *  cleanOnceBeforeBuildPatterns: []
  * });
  */
-module.exports = (options = { verbose: true }) => {
+module.exports = (options = defaultOptions) => {
   return {
     plugins: [
       new CleanWebpackPlugin(options)
