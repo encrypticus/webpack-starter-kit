@@ -3,31 +3,12 @@ const imageWebpackLoader = require('../loaders/image-webpack-loader');
 
 // Объект настроек по умолчанию
 const defaultOptions = {
-  imageLoader: {
-    name: process.env.mode === 'development' ? './img/[name].[ext]' : './img/[name].[contenthash:8].[ext]',
-  },
-  imageWebpackLoader: {
-    mozjpeg: {
-      progressive: true,
-      quality: 65
-    },
-    optipng: {
-      enabled: false,
-    },
-    pngquant: {
-      quality: [0.65, 0.90],
-      speed: 4
-    },
-    gifsicle: {
-      interlaced: false,
-    },
-    webp: {
-      quality: 75
-    },
-    svgo: {}
-  },
-  exclude: [/fonts/],
-  regexp: /\.(png|gif|jpg|jpeg|svg)$/
+  imageLoader: {},
+  imageWebpackLoader: {},
+  options: {
+    exclude: [/fonts/],
+    test: /\.(png|gif|jpg|jpeg|svg)$/
+  }
 };
 
 /**
@@ -59,23 +40,20 @@ const defaultOptions = {
  *  regexp: /\.(png|gif|jpg|jpeg|svg|bmp|bitmap)$/
  * });
  */
-module.exports = (options = defaultOptions) => {
-  return {
-    module: {
-      rules: [
-        {
-          test: options.regexp,
-          exclude: options.exclude,
-          use: process.env.mode === 'production' ?
-            [
-              imageLoader(options.imageLoader),
-              imageWebpackLoader(options.imageWebpackLoader)
-            ] :
-            [
-              imageLoader(options.imageLoader)
-            ]
-        }
-      ]
-    }
+module.exports = (options = {}) => ({
+  module: {
+    rules: [
+      {
+        ...{ ...defaultOptions.options, ...options },
+        use: process.env.mode === 'production' ?
+          [
+            imageLoader({ ...defaultOptions.imageLoader, ...options.imageLoader }),
+            imageWebpackLoader({ ...defaultOptions.imageWebpackLoader, ...options.imageWebpackLoader })
+          ] :
+          [
+            imageLoader({ ...defaultOptions.imageLoader, ...options.imageLoader })
+          ]
+      }
+    ]
   }
-};
+});

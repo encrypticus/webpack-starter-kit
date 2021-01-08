@@ -23,9 +23,10 @@ const defaultOptions = {
  *  emitFile: false
  * });
  */
-module.exports = (options = defaultOptions) => {
-  return {
-    loader: 'file-loader',
-    options
+module.exports = (options = {}) => ({
+  loader: 'file-loader',
+  options: {
+    ...defaultOptions,
+    ...options
   }
-} ;
+});
