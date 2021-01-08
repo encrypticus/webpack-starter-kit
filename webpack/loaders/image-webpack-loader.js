@@ -37,9 +37,10 @@ const defaultOptions = {
  *  }
  * });
  */
-module.exports = (options = defaultOptions) => {
-  return {
+module.exports = (options = {}) => ({
     loader: 'image-webpack-loader',
-    options
-  }
-};
+    options: {
+      ...defaultOptions,
+      ...options
+    }
+});
