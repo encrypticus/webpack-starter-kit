@@ -12,7 +12,7 @@
  *  injectType: 'singletonStyleTag'
  * })
  */
-module.exports = (options = {}) => {
+module.exports = (options) => {
   return {
     loader: 'style-loader',
     options

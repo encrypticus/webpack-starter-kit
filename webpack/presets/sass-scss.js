@@ -7,16 +7,11 @@ const postcssLoader = require('../loaders/postcss-loader');
 // Объект настроек по умолчанию
 const defaultOptions = {
   styleLoader: {},
-  cssLoader: {
-    sourceMap: true
-  },
-  sassScssLoader: {
-    sourceMap: true
-  },
-  postcssLoader: {
-    config: {
-      path: require('path').resolve('./webpack/configs/')
-    }
+  cssLoader: {},
+  sassScssLoader: {},
+  postcssLoader: {},
+  settings: {
+    test: /\.s[ac]ss$/
   }
 };
 
@@ -26,12 +21,12 @@ const defaultOptions = {
  * @param {Object} options настройки для пресета
  * @returns {Object} свойство объекта конфига сборщика, пресет для scss/sass-файлов
  */
-module.exports = (options = defaultOptions) => {
+module.exports = (options = {}) => {
   return {
     module: {
       rules: [
         {
-          test: /\.s[ac]ss$/,
+          ...{ ...defaultOptions.settings, ...options.settings },
           use: [
             process.env.mode === 'development' ? styleLoader(options.styleLoader) : miniCssExtractPlugin.loader,
             cssLoader(options.cssLoader),

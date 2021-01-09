@@ -22,9 +22,10 @@ const defaultOptions = {
  *  plugins: [require('cssnano')(), require('postcss-import')()]
  * })
  */
-module.exports = (options = defaultOptions) => {
-  return {
-    loader: 'postcss-loader',
-    options
+module.exports = (options) => ({
+  loader: 'postcss-loader',
+  options: {
+    ...defaultOptions,
+    ...options
   }
-};
+});

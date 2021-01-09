@@ -1,4 +1,5 @@
 const terserWebpackPlugin = require('../plugins/terser-webpack-plugin'); // минификатор js
+const cssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
 // Оъект настроек по умолчанию
 const defaultOptions = {
@@ -14,6 +15,7 @@ const defaultOptions = {
         }
       }
     }),
+    new cssMinimizerWebpackPlugin(),
   ],
   splitChunks: {
     chunks: 'all',

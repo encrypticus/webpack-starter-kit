@@ -18,9 +18,10 @@ const defaultOptions = {
  *  implementation: require('sass')
  * })
  */
-module.exports = (options = defaultOptions) => {
-  return {
-    loader: 'sass-loader',
-    options
+module.exports = (options) => ({
+  loader: 'sass-loader',
+  options: {
+    ...defaultOptions,
+    ...options
   }
-};
+});
