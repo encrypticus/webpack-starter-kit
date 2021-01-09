@@ -5,7 +5,7 @@ const imageWebpackLoader = require('../loaders/image-webpack-loader');
 const defaultOptions = {
   imageLoader: {},
   imageWebpackLoader: {},
-  options: {
+  settings: {
     exclude: [/fonts/],
     test: /\.(png|gif|jpg|jpeg|svg)$/
   }
@@ -44,14 +44,14 @@ module.exports = (options = {}) => ({
   module: {
     rules: [
       {
-        ...{ ...defaultOptions.options, ...options },
+        ...{ ...defaultOptions.settings, ...options.settings },
         use: process.env.mode === 'production' ?
           [
-            imageLoader({ ...defaultOptions.imageLoader, ...options.imageLoader }),
-            imageWebpackLoader({ ...defaultOptions.imageWebpackLoader, ...options.imageWebpackLoader })
+            imageLoader(options.imageLoader),
+            imageWebpackLoader(options.imageWebpackLoader)
           ] :
           [
-            imageLoader({ ...defaultOptions.imageLoader, ...options.imageLoader })
+            imageLoader(options.imageLoader)
           ]
       }
     ]
