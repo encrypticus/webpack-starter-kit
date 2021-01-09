@@ -9,6 +9,7 @@ const processSassScss = require('./webpack/presets/sass-scss'); // пресет 
 const processImages = require('./webpack/presets/img'); // пресет обрабатывет изображения
 const processFonts = require('./webpack/presets/font'); // пресет обрабатывает шрифты
 const processPug = require('./webpack/presets/pug'); // пресет обрабатывает pug-файлы
+const processHtml = require('./webpack/presets/html'); // пресет обрабатывает html-файлы
 const miniCssExtractPlugin = require('./webpack/plugins/mini-css-extract-plugin'); // модуль обрабатывает css-файлы
 const addOptimization = require('./webpack/options/optimization'); // опция добавляет оптимизацию для конечного кода
 const generateMap = require('./webpack/options/source-map'); // опция включает генерацию карты js/css-кода (sourcemap)
@@ -24,7 +25,8 @@ module.exports = () => {
     }),
     htmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/pages/index/index.pug'
+      template: 'src/pages/index/index.pug',
+      excludeChunks: ['blog']
     }),
     setOutput(),
     miniCssExtractPlugin(),
@@ -33,8 +35,8 @@ module.exports = () => {
     processImages(),
     processFonts(),
     processPug(),
+    processHtml(),
     processJs(),
-    cleanWebpackPlugin(),
     // enableStylelint()
   );
 
@@ -49,7 +51,8 @@ module.exports = () => {
   if (process.env.mode === 'production') {
     return webpackMerge(
       commonConfig,
-      addOptimization()
+      addOptimization(),
+      cleanWebpackPlugin()
     );
   }
 };

@@ -22,9 +22,10 @@ const defaultOptions = {
  *  }
  * });
  */
-module.exports = (options) => {
-  return {
+module.exports = (options) => ({
     loader: 'pug-html-loader',
-    options
-  }
-};
+    options: {
+      ...defaultOptions,
+      ...options
+    }
+});
