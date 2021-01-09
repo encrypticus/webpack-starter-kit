@@ -11,7 +11,11 @@ module.exports = {
   plugins: {
     autoprefixer: {},
     cssnano: {
-      preset: 'default'
+      preset: ['default', {
+        discardComments: {
+          removeAll: true,
+        }
+      }]
     }
   },
   sourceMap: true

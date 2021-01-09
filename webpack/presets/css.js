@@ -6,13 +6,10 @@ const postcssLoader = require('../loaders/postcss-loader');
 // Объект настроек по умолчанию
 const defaultOptions = {
   styleLoader: {},
-  cssLoader: {
-    sourceMap: true
-  },
-  postcssLoader: {
-    config: {
-      path: require('path').resolve('./webpack/configs/')
-    }
+  cssLoader: {},
+  postcssLoader: {},
+  settings: {
+    test: /\.css$/
   }
 };
 
@@ -51,12 +48,12 @@ const defaultOptions = {
  *  }
  * })
  */
-module.exports = (options = defaultOptions) => {
+module.exports = (options = {}) => {
   return {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          ...{ ...defaultOptions.settings, ...options.settings },
           use: [
             process.env.mode === 'development' ? styleLoader(options.styleLoader) : miniCssExtractPlugin.loader,
             cssLoader(options.cssLoader),

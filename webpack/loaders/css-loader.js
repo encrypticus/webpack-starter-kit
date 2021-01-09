@@ -19,9 +19,10 @@ const defaultOptions = {
  *  onlyLocals: true
  * })
  */
-module.exports = (options = defaultOptions) => {
-  return {
-    loader: 'css-loader',
-    options
+module.exports = (options) => ({
+  loader: 'css-loader',
+  options: {
+    ...defaultOptions,
+    ...options
   }
-};
+});

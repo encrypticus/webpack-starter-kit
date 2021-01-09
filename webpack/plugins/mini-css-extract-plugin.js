@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Объект настроек по умолчанию
 const defaultOptions = {
-  filename : process.env.mode === 'production' ? '[name].[contenthash:8].css' : '[name].css',
+  filename: process.env.mode === 'production' ? '[name].[contenthash:8].css' : '[name].css',
   chunkFilename: process.env.mode === 'production' ? '[name].[contenthash:8].css' : '[name].css'
 };
 
@@ -23,10 +23,10 @@ const defaultOptions = {
  *  ignoreOrder: false
  * });
  */
-module.exports = (options = defaultOptions) => {
+module.exports = (options = {}) => {
   return {
     plugins: [
-      new MiniCssExtractPlugin(options)
+      new MiniCssExtractPlugin({ ...defaultOptions, ...options })
     ]
   }
 };
