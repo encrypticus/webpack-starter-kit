@@ -20,9 +20,10 @@ const defaultOptions = {
  *  collapseWhitespace: false
  * });
  */
-module.exports = (options = defaultOptions) => {
-  return {
+module.exports = (options = {}) => ({
     loader: 'html-loader',
-    options
-  }
-};
+    options: {
+      ...defaultOptions,
+      ...options
+    }
+});

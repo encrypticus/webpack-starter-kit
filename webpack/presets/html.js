@@ -1,12 +1,10 @@
 const htmlLoader = require('../loaders/html-loader');
-const pugHtmlLoader = require('../loaders/pug-html-loader');
 
 // Объект настроек по умолчанию
 const defaultOptions = {
   htmlLoader: {},
-  pugHtmlLoader: {},
   settings: {
-    test: /\.pug$/
+    test: /\.html$/
   }
 };
 
@@ -16,7 +14,6 @@ const defaultOptions = {
  * которые будут обрабатывать эти файлы.
  * @param {Object} options настройки для пресета
  * @param {Object} options.htmlLoader настройки для html-loader (см. https://github.com/webpack-contrib/html-loader/#options)
- * @param {Object} options.pugHtmlLoader настройки для pug-html-loader (см. https://pugjs.org/api/reference.html)
  * @param {Object} options.settings настройки для модуля (например test, include, exclude... см. https://webpack.js.org/configuration/module/#rule)
  * @returns {Object} свойство объекта конфига сборщика, пресет для pug-файлов
  */
@@ -26,8 +23,7 @@ module.exports = (options = {}) => ({
       {
         ...{ ...defaultOptions.settings, ...options.settings },
         use: [
-          htmlLoader(options.htmlLoader),
-          pugHtmlLoader(options.pugHtmlLoader)
+          htmlLoader(options.htmlLoader)
         ]
       }
     ]
