@@ -37,7 +37,7 @@ module.exports = () => {
     processPug(),
     processHtml(),
     processJs(),
-    // enableStylelint()
+    enableStylelint()
   );
 
   if (process.env.mode === 'development') {
