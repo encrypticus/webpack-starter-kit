@@ -21,12 +21,12 @@ const cleanWebpackPlugin = require('./webpack/plugins/clean-webpack-plugin'); //
 module.exports = () => {
   const commonConfig = webpackMerge(
     setEntry({
-      index: './src/pages/index/index.js'
+      index: './src/pages/index/index.js',
+      libs: './src/sass/libs.scss'
     }),
     htmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/pages/index/index.pug',
-      excludeChunks: ['blog']
+      template: 'src/pages/index/index.pug'
     }),
     setOutput(),
     miniCssExtractPlugin(),
