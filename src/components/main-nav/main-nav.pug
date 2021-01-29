@@ -1,7 +1,17 @@
-mixin main-nav(selectedID)
+mixin main-nav(selectedID, mods)
   include main-nav.data.pug
 
-  nav.main-nav&attributes(attributes)
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' main-nav_' + modsList[i].trim();
+      }
+    }
+
+  nav.main-nav(class=allMods)&attributes(attributes)
     ul.main-nav__list.main-nav__list_level-1
       - mainNav(mainMenu)
 
@@ -23,8 +33,10 @@ mixin main-nav-item(selectedID, item, level)
     if (selectedID === item.id)
       thisItemClass += ' main-nav__item_active';
 
-    if (item.children)
+    if (item.children) {
       thisItemClass += ' main-nav__item_has-child';
+      thisLinkClass += ' has-arrow';
+    }
 
   li(class= thisItemClass)
     a(class= thisLinkClass, href= item.url)= item.name
