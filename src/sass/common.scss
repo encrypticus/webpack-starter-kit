@@ -17,6 +17,7 @@ html {
 body {
   padding: 0;
   margin: 0;
+  background: $page-bg-color;
 }
 
 ul {
@@ -38,4 +39,4 @@ ul {
 
 @import '../partials/page-header/page-header';
 @import '../partials/nav-bar/nav-bar';
-//@import '../components/main-nav/main-nav';
+@import '../components/main-nav/main-nav';
