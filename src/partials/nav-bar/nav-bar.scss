@@ -1,0 +1,21 @@
+.nav-bar {
+
+  // канвас мобильного меню (библиотека metismenu)
+  & .onoffcanvas {
+    width: 280px;
+    background-color: #fff;
+    opacity: 0;
+    transition: transform .3s ease;
+    overflow-y: scroll;
+
+    &_opacity {
+      opacity: 1;
+    }
+  }
+  
+}
+
+// оверлей мобильного меню (библиотека metismenu)
+.onoffcanvas-drawer.is-open {
+  background: rgba(0, 0, 0, 0.5);
+}

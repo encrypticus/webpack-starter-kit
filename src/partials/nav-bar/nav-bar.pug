@@ -1,0 +1,10 @@
+.nav-bar
+  .onoffcanvas.is-left#mob-menu-canvas
+    +main-nav('1', 'mobile')
+  .container-fluid
+    .row
+      .col-2.d-flex.d-md-none.justify-content-end.ml-auto
+        +hamburger('minify')(data-toggle='onoffcanvas', data-target='#mob-menu-canvas')
+    .row
+      .col-12.d-none.d-md-block
+        +main-nav('1', 'full')
