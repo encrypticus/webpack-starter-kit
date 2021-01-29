@@ -7617,6 +7617,13 @@ methods@~1.1.2:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
+metismenujs@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/metismenujs/-/metismenujs-1.2.1.tgz#9d1cd3ff97c6084331f8c44ac30f559801c33787"
+  integrity sha512-v7b3sjCSPmivYVBrmC3cs0ylgM/wPpZezG+i0rKUJJfLafANzBnSwA5gKaTXfJihdRJu+CQ0c66bNs4pf9Om/Q==
+  dependencies:
+    tslib "^2.0.0"
+
 micromatch@^2.1.5:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -8340,6 +8347,11 @@ onetime@^5.1.0:
   integrity sha512-5NcSkPHhwTVFIQN+TUqXoS5+dlElHXdpAWu9I0HP20YOtIi+aZ0Ct82jdlILDxjLEAWwvm+qj1m6aEtsDVmm6Q==
   dependencies:
     mimic-fn "^2.1.0"
+
+onoffcanvas@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/onoffcanvas/-/onoffcanvas-2.2.4.tgz#43d8234a7a3fe15684f2fbeefc9d030771008d1d"
+  integrity sha512-E58hsXByyGqabVTn6DuthKLtZNrGCR9Mp/nLG4wicKfzq8v4BGVaHo6Ip+xdymO3MvNQWFbEi9G1CWQxpLFPKQ==
 
 openurl@1.1.1:
   version "1.1.1"
@@ -11932,6 +11944,11 @@ tslib@^1.9.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
+
+tslib@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tty-browserify@0.0.0:
   version "0.0.0"

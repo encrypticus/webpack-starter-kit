@@ -75,7 +75,9 @@
     "jquery": "^3.4.1",
     "magic-burgers": "^1.0.0",
     "material-icons": "^0.3.1",
+    "metismenujs": "^1.2.1",
     "mmenu-js": "^8.4.3",
+    "onoffcanvas": "^2.2.4",
     "popper": "^1.0.1",
     "reset-css": "^5.0.1"
   }
