@@ -1,0 +1,41 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+@import '~bootstrap/scss/mixins/breakpoints';
+
+@import 'variables';
+
+html {
+  font-size: $font-size;
+  font-family: $font-family;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.page-wrapper {
+  max-width: $page-wrapper-max-width;
+  min-width: $page-wrapper-min-width;
+  margin: auto;
+}
+
+.container-fluid,
+.container {
+  max-width: $container-max-width;
+}
+
+@import '../partials/page-header/page-header';
+@import '../partials/nav-bar/nav-bar';
+//@import '../components/main-nav/main-nav';
